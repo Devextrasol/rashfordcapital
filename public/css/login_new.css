@@ -1,0 +1,330 @@
+@charset "UTF-8";
+
+body.login,
+body.register,
+body.password-request {
+  background-image: url("/images/bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.branding {
+  padding-top: 10px;
+}
+
+.branding + article {
+  margin-top: 130px;
+}
+
+h2.plz-login {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 31px;
+  color: #000000;
+}
+
+p.no-account {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16.6px;
+  color: #535353;
+}
+
+/* Styles for form fields */
+
+body.login .mobile-only {
+  display: none !important;
+}
+
+.sign-up-form {
+  padding-bottom: 100px;
+  /**
+    * Add a transition to the label and input.
+    * I'm not even sure that touch-action: manipulation works on
+    * inputs, but hey, it's new and cool and could remove the
+    * pesky delay.
+    */
+  /**
+    * Translate down and scale the label up to cover the placeholder,
+    * when following an input (with placeholder-shown support).
+    * Also make sure the label is only on one row, at max 2/3rds of the
+    * field—to make sure it scales properly and doesn't wrap.
+    */
+  /**
+    * By default, the placeholder should be transparent. Also, it should
+    * inherit the transition.
+    */
+  /**
+    * Show the placeholder when the input is focused.
+    */
+  /**
+    * When the element is focused, remove the label transform.
+    * Also, do this when the placeholder is _not_ shown, i.e. when
+    * there's something in the input at all.
+    */
+}
+
+.sign-up-form form > a {
+  color: #2185d0;
+  margin-right: 10px;
+  border-right: 1px solid #2185d0;
+  padding-right: 10px;
+}
+
+.sign-up-form form > a:last-child {
+  border: 0;
+}
+
+.sign-up-form form > a:hover {
+  text-decoration: underline;
+}
+
+.sign-up-form .form-button,
+.sign-up-form button {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #f68006;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 25px;
+  max-width: 170px;
+  width: 100%;
+  text-transform: capitalize;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sign-up-form .form-button.reset-pass,
+.sign-up-form button.reset-pass {
+  max-width: 270px;
+}
+
+.sign-up-form .form-button:hover,
+.sign-up-form button:hover {
+  background-color: #320852;
+  text-decoration: none;
+}
+
+.sign-up-form button {
+  margin-left: 0;
+  background-color: #2185d0;
+}
+
+.sign-up-form button:hover {
+  background-color: #5145FF;
+}
+
+.sign-up-form .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse;
+          flex-flow: column-reverse;
+  margin-bottom: 10px;
+}
+
+.sign-up-form .field.checkbox {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+.sign-up-form .field.checkbox label {
+  color: #626262;
+}
+
+.sign-up-form .field.checkbox a {
+  color: #626262;
+  text-decoration: underline;
+}
+
+.sign-up-form .field.checkbox a:hover {
+  color: #5145FF;
+  text-decoration: none;
+}
+
+.sign-up-form label,
+.sign-up-form input,
+.sign-up-form select {
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+.sign-up-form input,
+.sign-up-form select {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1a1a1a;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: text;
+  text-transform: none;
+  height: 40px;
+  background: none;
+}
+
+.sign-up-form input:focus,
+.sign-up-form select:focus {
+  outline: 0;
+  border-bottom: 1px solid #666;
+}
+
+.sign-up-form label {
+  text-transform: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+
+.sign-up-form input:placeholder-shown + label,
+.sign-up-form select:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-transform-origin: left bottom;
+       -o-transform-origin: left bottom;
+          transform-origin: left bottom;
+  -webkit-transform: translate(0, 2.125rem) scale(1.5);
+       -o-transform: translate(0, 2.125rem) scale(1.5);
+          transform: translate(0, 2.125rem) scale(1.5);
+}
+
+.sign-up-form ::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.sign-up-form ::-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.sign-up-form :-ms-input-placeholder {
+  opacity: 0;
+  -webkit-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.sign-up-form :-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.sign-up-form input:focus::-webkit-input-placeholder,
+.sign-up-form select:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.sign-up-form input:not(:placeholder-shown) + label,
+.sign-up-form input:focus + label,
+.sign-up-form select:not(:placeholder-shown) + label,
+.sign-up-form select:focus + label {
+  -webkit-transform: translate(0, 0) scale(1);
+       -o-transform: translate(0, 0) scale(1);
+          transform: translate(0, 0) scale(1);
+  cursor: pointer;
+  color: #5145FF;
+}
+
+@media only screen and (max-width: 480px) {
+  body.login,
+  body.register,
+  body.password-request {
+    background-position-y: 0px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body.login,
+  body.register,
+  body.password-request {
+    background-position-y: -10px;
+  }
+
+  .branding img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  .branding + article {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  body.login,
+  body.register,
+  body.password-request {
+    background-position-y: -70px;
+  }
+
+  .branding img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .branding + article {
+    margin-top: 40px;
+  }
+
+  .sign-up-form h2.plz-login {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body.login,
+  body.register,
+  body.password-request {
+    background-position-y: -90px;
+  }
+
+  .branding + article {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  body.login,
+  body.register,
+  body.password-request {
+    background-position-y: -90px;
+  }
+
+  .branding + article {
+    margin-top: 170px;
+  }
+}
+

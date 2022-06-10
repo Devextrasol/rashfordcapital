@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
+/* ------ Global ------------- */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid,
+.container-fluid.ui.grid {
+    width: calc( 100% - 1em);
+    margin: 0 auto;
+}
+/* ------ Global ------------- */
+
+/* ------ Top Header --------- */
+#header {
+    .masthead {
+        background: #37014f;
+
+        .row {
+            height: 130px;
+        }
+
+        .logo {
+            width: auto;
+            height: 86px;
+        }
+
+        .primary-nav {
+            list-style: none;
+
+            li {
+                display: inline-block;
+                margin: 0 10px;
+            }
+
+            a,
+            .text {
+                font-size: 18px;
+                font-weight: 300;
+                color: #fff;
+            }
+
+            .ui.dropdown .menu{
+                top: 30px;
+
+                a,
+                .item,
+                 {
+                    color: #37014f;
+                    font-size: 14px;
+                    border-bottom: 1px solid #dcc1e8;
+
+                    &:hover {
+                        background: #fcf6ff;
+                    }
+
+                    &:last-child {
+                        border: none;
+                        border-radius: 0 0 4px 4px;
+                    }
+                }
+
+                .item.dropdown {
+                    background: none;
+                }
+
+                .chevron.down.icon {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+/* ------ Top Header --------- */
+
+/* ------ Sidebar ------------ */
+.sidebar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    i {
+        display: none;
+    }
+
+    .item {
+        display: block;
+        font-weight: 300;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: black;
+        border-bottom: 1px solid #ededed;
+        padding: 20px 5px 20px 40px;
+        background: url("/images/ico-account-normal.png") no-repeat left center transparent;
+        background-size: 30px;
+
+        &:hover,
+        &.active {
+            color: #5145ff;
+        }
+    }
+
+    .item-account .item {
+        background-image: url("/images/ico-account-normal.png");
+
+        &:hover,
+        &.active {
+            background-image: url("/images/ico-account-hover.png");
+        }
+    }
+
+    .item-trade .item {
+        background-image: url("/images/ico-trade-normal.png");
+
+        &:hover,
+        &.active {
+            background-image: url("/images/ico-trade-hover.png");
+        }
+    }
+
+    .item-trade-history .item {
+        background-image: url("/images/ico-history-normal.png");
+
+        &:hover,
+        &.active {
+            background-image: url("/images/ico-history-hover.png");
+        }
+    }
+
+    .item-coins .item {
+        background-image: url("/images/ico-coin-normal.png");
+
+        &:hover,
+        &.active {
+            background-image: url("/images/ico-coin-hover.png");
+        }
+    }
+
+    .item-support .item {
+        background-image: url("/images/ico-support-normal.png");
+
+        &:hover,
+        &.active {
+            background-image: url("/images/ico-support-hover.png");
+        }
+    }
+
+}
+
+/* ------ Sidebar ------------ */
+
+/* ------ Competition/Trade Show Inner ------------ */
+.trade-labels {
+    text-align: center;
+
+    .ui.labels {
+        .ui.basic.label {
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: capitalize;
+            padding: 12px;
+            margin-right: 5px;
+            cursor: default;
+
+            &.blue {
+                border-color: #d6d5da !important;
+                background-color: #fff !important;
+                color: #5145ff !important;
+
+                &:hover {
+                    border-color: #5145ff !important;
+                    background-color: #5145ff !important;
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}
+
+.trade-wrapper {
+    background-color: #f8f8fa;
+    border: 1px solid #d6d5da;
+    padding: 14px;
+
+    #asset-chart-container {
+
+        .chart-buttons {
+            margin-top: 10px;
+
+            .ui.blue.button {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: 300;
+                color:#fff !important;
+                background-color: #5145ff !important;
+                padding: 14px;
+                width: 70px;
+                margin-right: 13px;
+                margin-top: 10px;
+                box-shadow: 0 8px 10px 3px #f1f1f3 !important;
+
+                &.basic {
+                    color:#212122 !important;
+                    background-color: #fbfbfd !important;
+                }
+            }
+        }
+    }
+
+    .ui.statistic,
+    .ui.statistics .statistic {
+        >.value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 60px;
+            font-weight: 700;
+        }
+
+        >.label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+    }
+
+    #trade-form .field input {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #f6a120;
+        border-color: #d07f04;
+
+        &::placeholder {
+            color: #fff;
+        }
+
+        &:focus {
+            background-color: #ffe3ba;
+            border-color: #d07f04;
+
+             &::placeholder {
+                color: #000;
+            }
+        }
+    }
+
+    .ui.table {
+        font-size: 14px;
+        background-color: #fff;
+        thead th {
+            font-weight: 700;
+        }
+    }
+}
+
+/* ------ Competition/Trade Show Inner ------------ */
+
+/* ------ Competition/Trade Right Sidebar --------- */
+
+.right-sidebar {
+    .prompt {
+        border-radius: .28571429rem;
+    }
+
+    .ui.input {
+        width: 100%;
+        margin-bottom: 20px;
+
+        >input {
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            border-color: #d6d5da;
+
+            &:focus {
+                border-color: #5145ff;
+            }
+        }
+    }
+
+    .search-results,
+    .assets-all {
+        .item {
+            .ui.image {
+                width: 32px;
+                height: 32px;
+
+                &+.content {
+                    padding-left: 0;
+
+                    .header {
+                        font-weight: 300;
+                        width: 60px;
+                    }
+
+                    .meta {
+
+                    }
+
+                    .header,
+                    .meta {
+                        margin: 0 10px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 400;
+                        font-size: 14px;
+                        float: left;
+                        line-height: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ------ Competition/Trade Right Sidebar --------- */
+
+/* ------ Footer --------- */
+
+#footer {
+    background-color: #37014f;
+
+    .header img {
+        width: auto;
+        height: 60px;
+    }
+}
+
+/* ------ Footer --------- */
+
+
+/* ------ admin Leads Page  --------- */
+
+.backend-leads {
+    .ui.selection.dropdown {
+        min-height: 0;
+    }
+}
+
+#leads-table {
+    font-size: 11px;
+
+    .ui.selection.dropdown .menu>.item {
+        font-size: 11px;
+    }
+
+    .ui.selection.dropdown {
+        width: 115px!important;
+        min-width: 115px;
+
+        .menu {
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+}
+/* ------  admin Leads Page  --------- */
+
+
+
+@media only screen and (max-width:767px) {
+    #header {
+        .masthead {
+
+            .row {
+                height: 100px;
+            }
+
+            .logo {
+                width: auto;
+                height: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+}
+
+@media only screen and (min-width:992px) and (max-width:1199px) {
+    .trade-wrapper {
+        .ui.table {
+            font-size: 10px;
+        }
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .trade-wrapper {
+        .ui.table {
+            font-size: 12px;
+        }
+    }
+}

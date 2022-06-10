@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Accounting add-on</title>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+</head>
+<body>
+  <div class="ui one column stackable grid container">
+    <div class="column">
+      <h1 class="ui teal dividing header">Accounting add-on</h1>
+      <h2 class="ui teal header">About</h2>
+      <p>
+        The <b>Accounting add-on</b> extends the functionality of
+        <a href="https://1.envato.market/j4Gvn" target="_blank">Crypto Trading Competitions</a> and
+        <a href="https://1.envato.market/kv1mM" target="_blank">Stock Trading Competitions</a> applications and provides the following features.
+      </p>
+      <h3 class="ui header">Accounts</h3>
+      <p>
+        An account is automatically created for each user to track movements of real funds. Current balance as well as account transactions history is displayed on the user Account page. A website administrator can set any account currency (to be used globally by all accounts).
+      </p>
+      <h3 class="ui header">Deposits</h3>
+      <p>
+        Users can deposit real money to their accounts using PayPal, Stripe and CoinPayments.net payment gateways. The following payment methods are supported by Stripe integration:
+      </p>
+      <div class="ui bulleted list">
+        <div class="item">Debit / Credit card</div>
+        <div class="item">IDEAL</div>
+        <div class="item">Bancontact</div>
+        <div class="item">Giropay</div>
+        <div class="item">SOFORT</div>
+        <div class="item">EPS</div>
+        <div class="item">Multibanco</div>
+        <div class="item">Przelewy24</div>
+        <div class="item">Alipay</div>
+      </div>
+      <p>
+        An administrator can choose which payment methods are available to users.
+      </p>
+      <h3 class="ui header">Withdrawals</h3>
+      <p>
+        Users can withdraw funds from their accounts. Withdrawal forms for PayPal and wire transfer methods are provided, but payments will need to be executed manually by administrators. Once a payment is marked as Completed in the backend the user account balance is automatically decreased. An administrator can choose which withdrawal methods are available to users.
+      </p>
+
+      <h3 class="ui header">Coinpayments.net</h3>
+      <p>
+        Please follow next steps to configure payments via coinpayments.net:
+      </p>
+      <ul>
+        <li>Sign up at <a href="https://www.coinpayments.net/" target="_blank">coinpayments.net</a>.</li>
+        <li>
+          Open <b>Account</b> »
+          <b>Coin Acceptance Settings</b> page and select coins that you would like to accept (these coins will be available for deposits and withdrawals).
+        </li>
+        <li>
+          Open <b>Account</b> » <b>Account Settings</b> page, select <b>Merchant Settings</b> tab and fill
+          <b>IPN Secret</b> field. It can be any random alphanumeric string. Do <b>not</b> fill
+          <b>IPN URL</b>, leave it blank.
+        </li>
+        <li>
+          Open <b>Account</b> » <b>API keys</b> page and click
+          <b>Generate new key</b> button. After it is generated click
+          <b>Edit Permissions</b> button and enable the following permissions:
+          <ul>
+            <li>get_basic_info</li>
+            <li>create_transaction</li>
+            <li>get_tx_info</li>
+            <li>balances</li>
+            <li>create_withdrawal</li>
+            <li>Allow auto_confirm = 1 in create_withdrawal (only in case you like to enable auto confirmation of withdrawals)</li>
+            <li>get_withdrawal_info</li>
+            <li>rates</li>
+          </ul>
+        </li>
+        <li>
+          Copy <b>Merchant ID</b>, <b>Public key</b>, <b>Private key</b> and <b>IPN Secret</b>. Input these keys in
+          <b>Backend</b> » <b>Settings</b> » <b>Add-on: Accounting</b>. Add <b>Coinpayments.net</b> to
+          <b>Enabled deposit methods</b>.
+        </li>
+      </ul>
+      <div class="ui warning message">
+        If you use a firewall or some external security service such as Cloudflare make sure to white list all GET / POST requests to all URLs that start with
+        <b>/deposits</b>, otherwise instant payment notification (IPN) messages will not reach your website and hence deposits / withdrawals will stuck in
+        <b>Pending</b> status.
+      </div>
+
+      <h2 class="ui teal header">System requirements</h2>
+      <div class="ui list">
+        <div class="item">
+          <i class="setting icon"></i>
+          <div class="content">
+            <a href="https://1.envato.market/j4Gvn" target="_blank"> Crypto Trading Competitions </a>
+          </div>
+        </div>
+        <div class="item">
+          OR
+        </div>
+        <div class="item">
+          <i class="setting icon"></i>
+          <div class="content">
+            <a href="https://1.envato.market/kv1mM" target="_blank"> Stock Trading Competitions </a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="ui teal header">Installation</h2>
+      <h3 class="ui header">Step 1</h3>
+      <p>
+        Log in to the backend and make sure the minimum required version is installed (the version is displayed in the top header bar), open
+        <b>Maintenance</b> page and leave it open.
+      </p>
+      <h3 class="ui header">Step 2</h3>
+      <p>
+        Download the latest application package from CodeCanyon, upload it to your server and unzip (overwrite all existing files), so that such folders as
+        <b>app</b>, <b>bootstrap</b>, <b>config</b> etc are on the same level with <b>packages</b> folder.
+      </p>
+      <h3 class="ui header">Step 3</h3>
+      <p>
+        Go back to <b>Maintenance</b> page (or open the following URL: https://yourwebsite.com/admin/maintenance), click
+        <b>Run database updates</b> button and after this process is successfully completed click
+        <b>Clear cache</b> button.
+      </p>
+      <h3 class="ui header">Step 4</h3>
+      <p>
+        Open <b>Add-ons</b> page in the backend and check that the add-on is marked as installed.
+      </p>
+      <h3 class="ui header">Step 5</h3>
+      <p>
+        Open <b>Settings</b> page in the backend and under
+        <b>Add-on: Accounting</b> tab configure the add-on settings, such as account currency, PayPal API credentials, Stripe API credentials, allowed payment and withdrawal methods.
+      </p>
+
+      <h2 class="ui teal header">Upgrade</h2>
+      <p>
+        To upgrade the add-on to the latest version simply repeat the installation steps.
+      </p>
+
+      <h2 class="ui teal header">Support</h2>
+      <p>
+        Please note that support can only be provided during the application support period. 6 months of free support are provided with your purchase. Should you need support outside of this period you will need to renew it.
+        <a href="https://help.market.envato.com/hc/en-us/articles/207886473-Extending-and-Renewing-Item-Support" target="_blank"> How to extend / renew the app support? </a>
+      </p>
+      <p>
+        To get technical support please submit a new ticket at
+        <a href="https://support.financialplugins.com" target="_blank">https://support.financialplugins.com</a>. If you see an application error please do the following:
+      </p>
+      <ul>
+        <li>Enable <b>Debug</b> mode (<b>Backend</b> » <b>Settings</b> » <b>Developer</b>)<sup>1</sup></li>
+        <li>Repeat the error</li>
+        <li>Make a screenshot of the error</li>
+        <li>Check the browser console and make a screenshot if there are any errors</li>
+        <li>Provide the above information along with the application error log (can be found in
+          <b>storage/logs</b> folder)
+        </li>
+        <li>Provide steps to reproduce the error</li>
+      </ul>
+      <p>
+        In case the issue is difficult to trace our support team can request SSH / cPanel access to your server and / or website admin access.
+      </p>
+      <hr>
+      <p>
+        1 &mdash; If you don't have access to backend please edit
+        <b>.env</b> configuration file (located in the web root folder of your domain) and set the following variables:
+      </p>
+      <pre>APP_DEBUG=true
+APP_LOG_LEVEL=debug
+</pre>
+    </div>
+  </div>
+
+  <div class="ui hidden divider"></div>
+  <div class="ui hidden divider"></div>
+
+  <div class="ui inverted vertical segment">
+    <div class="ui container">
+      <div class="ui middle aligned stackable inverted equal height stackable grid">
+        <div class="eight wide tablet-and-below-center column">
+          <h4 class="ui inverted header">
+            Accounting add-on
+          </h4>
+        </div>
+        <div class="eight wide right aligned tablet-and-below-center column">
+          <p>&copy; Built with <i class="heart teal icon"></i>by
+            <a href="https://financialplugins.com" target="_blank">FinancialPlugins.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="vendor/semantic/semantic.min.js"></script>
+</body>
+</html>
