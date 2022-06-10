@@ -1,0 +1,1 @@
+{"_token":"1222EC93B7282A118D1426493E8AB759","first_name":"Juan","last_name":"Bahamonde","email":"digitech2003@hotmail.com","password":"1234567Aa","phone":"16467248364","status":"real","country":"US","btag":"202201042356001","funnel":"BitIQ","ip":"68.129.88.153","language":"ES"}
