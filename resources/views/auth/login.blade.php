@@ -7,21 +7,22 @@
 @endsection
 @section('auth')
 <!-- --------Header------------->
-<header class="branding">
+{{-- <header class="branding">
   <div class="custom-container ui container">
     <a href="{{ route('frontend.index') }}"><img src="{{ asset('images/home-logo.png') }}" class="login-logo main-logo" alt=""></a>
   </div>
-</header>
+</header> --}}
 <!------------ Body---------------->
 <article>
-  <div class="custom-column ui container">
+  <div class="custom-column ui">
     <div class="ui stackable two column grid">
-      <div class="nine wide column"><div class="care-center-2">
-        <img src="{{ asset('images/login-illustration_03.png') }}" class="ui fluid image care-img" alt="">
-      </div>
-    </div>
-    <div class="custom-style seven wide column">
+      <div class="custom-style seven wide column">
       <div class="sign-up-form">
+        <div class="main-logo">
+          <a href="/">
+            <img src="{{ asset('images/png-logo.svg') }}" class="ui fluid image care-img" alt="">
+          </a>
+        </div>
         @component('components.session.messages')
         @endcomponent
         <loading-form v-cloak inline-template>
@@ -101,6 +102,11 @@
         @endsocial
       </div>
     </div>
+      <div class="nine wide column"><div class="care-center-2">
+        <img src="{{ asset('images/login.jpg') }}" class="ui fluid image care-img" alt="">
+      </div>
+    </div>
+    
   </div>
 </div>
 </article>
