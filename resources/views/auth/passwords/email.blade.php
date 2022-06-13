@@ -7,18 +7,22 @@
 @endsection
 @section('auth')
 <!-- --------Header------------->
-<header class="branding">
+{{-- <header class="branding">
   <div class="custom-container ui container">
     <a href="{{ route('frontend.index') }}"><img src="{{ asset('images/logo-ing.png') }}" class="main-logo hide-logo" alt=""></a>
   </div>
-</header>
+</header> --}}
 <!------------ Body------------>
 <article>
-  <div class="custom-column ui container">
+  <div class="custom-column ui">
     <div class="ui stackable two column grid">
-      <div class="nine wide column"><div class="care-center"><img src="{{ asset('images/Reset-password.png') }}" class="care-img ui fluid image care-img" alt=""></div></div>
       <div class="custom-style seven wide column">
         <div class="sign-up-form new-form reset-form">
+          <div class="main-logo">
+          <a href="/">
+            <img src="{{ asset('images/png-logo.svg') }}" class="ui fluid image care-img" alt="">
+          </a>
+        </div>
           @component('components.session.messages')
           @endcomponent
           <loading-form v-cloak inline-template>
@@ -29,7 +33,6 @@
             </p>
             <div class="field{{ $errors->has('email') ? ' error' : '' }}">
               <input type="email" placeholder="Enter Email" name="email" id="email" value="{{ old('email') }}" required autofocus>
-              <label for="email">{{ __('auth.email') }} Address</label>
             </div>
             @if(config('settings.recaptcha.public_key'))
             <div class="field">
@@ -37,10 +40,14 @@
             </div>
             @endif
             <button class="reset-pass [{disabled: submitted, loading: submitted}, 'ui {{ $settings->color }} fluid large submit button']">{{ __('auth.reset') }}</button>
+            <a href="/login" class="back-btn">Back</a>
           </form>
+
           </loading-form>
         </div>
       </div>
+      <div class="nine wide column image-column"><div class="care-center"><img src="{{ asset('images/login.jpg') }}" class="care-img ui fluid image care-img" alt=""></div></div>
+      
     </div>
   </div>
 </article>

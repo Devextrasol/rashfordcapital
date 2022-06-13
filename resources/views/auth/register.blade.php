@@ -7,18 +7,22 @@
 @endsection
 @section('auth')
 <!------------ Header----------------->
-<header class="branding">
+{{-- <header class="branding">
   <div class="custom-container ui container">
     <a href="{{ route('frontend.index') }}"><img src="{{ asset('images/home-logo.png') }}" class="login-logo main-logo" alt=""></a>
   </div>
-</header>
+</header> --}}
 <!-------------body------------------->
 <article>
-  <div class="custom-column ui container">
+  <div class="custom-column ui">
     <div class="ui stackable two column grid">
-      <div class="nine wide column"><div class="care-center"><img src="{{ asset('images/login-illustration_03.png') }}" class="ui fluid image care-img" alt=""></div></div>
       <div class="custom-style seven wide column">
         <div class="sign-up-form new-form">
+          <div class="main-logo">
+          <a href="/">
+            <img src="{{ asset('images/png-logo.svg') }}" class="ui fluid image care-img" alt="">
+          </a>
+        </div>
           @component('components.session.messages')
           @endcomponent
           <loading-form v-cloak inline-template>
@@ -28,33 +32,26 @@
             <p class="no-account">Don't have an account? Create your account, it takes less then a minute.</p>
             <div class="field{{ $errors->has('email') ? ' error' : '' }}">
               <input type="email" placeholder="Enter Email" name="email" id="email" value="{{ old('email') }}" autofocus required>
-              <label for="email">{{ __('auth.email') }} Address</label>
             </div>
             <div class="field{{ $errors->has('password') ? ' error' : '' }}">
               <input type="password" placeholder="Enter Password" id="password" name="password" required>
-              <label for="password">Choose Password</label>
             </div>
             <div class="field{{ $errors->has('password') ? ' error' : '' }}">
               <input type="password" placeholder="Confirm Password" name="password_confirmation" id="password_confirmation" required>
-              <label for="password_confirmation">Please Confirm Password</label>
             </div>
             <div class="field{{ $errors->has('name') ? ' error' : '' }}">
               <input type="text" placeholder="First Name" name="name" value="{{ old('name') }}" id="name" required>
-              <label for="name">First Name</label>
             </div>
             <div class="field{{ $errors->has('last_name') ? ' error' : '' }}">
               <input type="text" placeholder="Last Name" name="last_name" id="last_name" value="{{ old('last_name') }}" required>
-              <label for="last_name">Last Name</label>
             </div>
             <div class="field{{ $errors->has('country') ? ' error' : '' }}">
               <select name="country" id="country" value="{{ old('country') }}" required>
                 @include('includes.frontend.country_options')
               </select>
-              <label for="country">Country</label>
             </div>
             <div class="field{{ $errors->has('phone') ? ' error' : '' }}">
               <input type="text" placeholder="Phone" id="phone" name="phone" value="{{ old('phone') }}" required>
-              <label for="phone">Phone</label>
             </div>
             @if(config('settings.recaptcha.public_key'))
             <div class="field">
@@ -62,8 +59,10 @@
             </div>
             @endif
             <button class="[{disabled: submitted, loading: submitted}, 'ui {{ $settings->color }} fluid large submit button']">{{ __('auth.sign_up') }}</button>
+            <div class="center-block">
             <a href="{{ url('page/privacy-policy') }}" class="term-and-condition hover">Term and Conditions</a>
             <a href="{{ url('page/terms-of-use') }}" class="privacy-policy hover">Privacy Policy</a>
+          </div>
           </form>
           </loading-form>
           @social
@@ -95,6 +94,11 @@
           @endsocial
         </div>
       </div>
+      <div class="nine wide column image-column">
+        <div class="care-center-2">
+        <img src="{{ asset('images/login.jpg') }}" class="ui fluid image care-img" alt="">
+      </div>
+    </div>
     </div>
   </div>
 </article>
