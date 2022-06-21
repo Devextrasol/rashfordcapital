@@ -1,6 +1,42 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap);
-@import "/fonts/stylesheet.css";
+
+@font-face {
+    font-family: 'NexaRegular';
+    src: url('fonts/NexaRegular.woff2') format('woff2'),
+        url('fonts/NexaRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexaExtraBold';
+    src: url('fonts/Nexa-ExtraBold.woff2') format('woff2'),
+        url('fonts/Nexa-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexaSemi';
+    src: url('fonts/NexaScript-SemiBold.woff2') format('woff2'),
+        url('fonts/NexaScript-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexaBlack';
+    src: url('fonts/Nexa-Black.woff2') format('woff2'),
+        url('fonts/Nexa-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 html,
 body,
 #app {
@@ -142,7 +178,7 @@ body.color-green #particles {
 }
 
 body.color-teal a {
-  color: #00B5AD;
+  color: #000;
 }
 
 body.color-teal a:hover {
@@ -361,11 +397,6 @@ body.color-black #particles {
   background-color: #fefde5 !important;
 }
 
-#header #menu-top-bar {
-  padding-bottom: 0;
-  margin-top: 1rem;
-}
-
 #header .image {
   margin-right: .25em;
   display: inline-block;
@@ -425,9 +456,9 @@ body.color-black #particles {
   text-align: left;
 }
 
-#content > .ui.grid {
+/*#content > .ui.grid {
   margin-top: 1rem;
-}
+}*/
 
 #content .stripe {
   padding: 6em 0em;
@@ -455,18 +486,18 @@ body.color-black #particles {
   margin-top: 0em;
 }
 
-#content .masthead {
+/*#content .masthead {
   background: url("/images/front-background.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 700px;
-}
+}*/
 
-#content .masthead h1 {
+/*#content .masthead h1 {
   margin-top: 2.6em;
   margin-bottom: 0em;
   font-size: 3.2em;
   font-weight: normal;
-}
+}*/
 
 #content .masthead h2 {
   font-size: 1.7em;
@@ -524,7 +555,8 @@ body.color-black #particles {
 }
 
 #content #asset-chart-container #asset-chart {
-  height: 280px !important;
+  height: 360px !important;
+  width: 100% !important;
 }
 
 #content #competition-leaderboard .balance-change {
@@ -577,94 +609,37 @@ body.color-black #particles {
 
 #footer {
   margin-top: 2em;
-  padding: 2em 0em;
+  padding: 20px 50px;
+  margin-left: -30px;
+  margin-right: 0;
+  background: #F1F1F1;
 }
 
-@media only screen and (max-width: 767px) {
-  .mobile-center {
-    text-align: center !important;
-  }
-
-  .pagination .item:not(.active):not(:first-child):not(:last-child) {
-    display: none !important;
-  }
-
-  .labels .label {
-    display: block;
-  }
-
-  .assets.items {
-    text-align: center;
-  }
+#footer a {
+  color: #181E40;
+  font-size: 16px;
 }
 
-@media only screen and (max-width: 991px) {
-  .tablet-and-below-center {
-    text-align: center !important;
-  }
-
-  .masthead .menu .item {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .stackable.table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  .stackable.table tbody tr td {
-    display: block;
-    text-align: right;
-  }
-
-  .stackable.table tbody tr td:before {
-    content: attr(data-title);
-    float: left;
-    font-weight: bold;
-  }
-
-  .stackable.table tbody tr td .column:first-child {
-    text-align: left;
-  }
-
-  .stackable.table tbody tr td .column:last-child {
-    text-align: right;
-  }
-
-  .stackable.table tfoot tr td {
-    text-align: center !important;
-  }
-
-  #menu-top-bar h4 {
-    display: inline;
-  }
-
-  #trade-form .fields {
-    margin-bottom: 1em;
-  }
-
-  #asset-chart-container button {
-    margin-bottom: 0.25em;
-  }
+#footer a:hover {
+  color: #FF3B42;
 }
 
-@media only screen and (max-width: 1200px) {
-  .monitor-and-below-center {
-    text-align: center !important;
-  }
+/*---------------------- Account page----------------*/
+.frontend-account-show .container-fluid,
+.frontend-account-show .container-fluid.ui.grid{
+  margin: 0;
 }
+
+/*---------------------- End Account page----------------*/
 
 /* ------ Global ------------- */
 
 body {
   /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Poppins', sans-serif;
+}
+
+h3 {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -678,19 +653,324 @@ body {
 
 /* ------ Top Header --------- */
 
+.frontend .hide-frontend {
+  display: none;
+}
+
+.frontend .ui.grid>.column:not(.row) {
+  padding: 0;
+}
+
+.user-main .ui.grid>[class*="thirteen wide"].column {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.user-main .ui.grid>[class*="thirteen wide"].column.inner {
+  padding: 0;
+  padding-right: 30px;
+}
+
+.user-main .ui.grid>[class*="thirteen wide"].column.inner .ui.grid {
+  margin: 0;
+}
+
+.account-info {
+  display: flex;
+  row-gap: 30px;
+  column-gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #F1F1F1;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.account-info .inner-content {
+  padding: 20px 50px;
+  text-align: center;
+  border-right: 1px solid #F1F1F1;
+}
+
+.account-info .inner-content:last-child {
+  border-right: unset;
+}
+
+.account-info h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #787878;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.account-info span{
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+/*//////////// Deposit page ////////////////*/
+.ui.segment.deposit-page {
+    border: unset;
+    box-shadow: unset;
+}
+
+.ui.segment.deposit-page label {
+  color: #181E40;
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.deposit-page #deposit-form {
+  margin-top: 10px;
+}
+
+.deposit-page #deposit-form input,
+.deposit-page #withdrawal-form input,
+.deposit-page .ui.selection.search.dropdown {
+  height: 60px;
+  background: #F0F3F6;
+  border: unset;
+  color: #181E40;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.deposit-page #deposit-form .ui.selection.search.dropdown {
+  max-width: 500px;
+}
+
+.deposit-page #deposit-form .eight.wide.field:last-child {
+  padding-left: 50px;
+}
+
+.deposit-page .ui.selection.search.dropdown {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-left: 20px;
+}
+
+.deposit-page #deposit-form .label,
+.deposit-page #withdrawal-form .label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  background: #FF3B42;
+  color: #fff;
+}
+
+.deposit-page #deposit-form i.dropdown.icon,
+.deposit-page #withdrawal-form i.dropdown.icon  {
+  background: #FF3B42;
+  color: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 20px;
+  height: 100%;
+  opacity: 1;
+}
+
+.deposit-page p {
+  color: #000;
+  opacity: 0.6;
+}
+
+.deposit-page #deposit-form .submit,
+.deposit-page #withdrawal-form .submit {
+  color: #fff;
+  border-radius: 100px;
+  padding: 15px 50px;
+  background: #000;
+  font-weight: 400;
+  opacity: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.deposit-page .submit .icon {
+  opacity: 1;
+}
+
+.deposit-page #withdrawal-form .submit:hover,
+.deposit-page #deposit-form .submit:hover {
+  background: #FF3B42;
+}
+
+/*//////////// End Deposit page ////////////////*/
+
+/*-------------withdrawal-form-------------------*/
+.deposit-page #withdrawal-form {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-column-gap: 4%;
+}
+
+.deposit-page.crypto #withdrawal-form {
+  display: grid;
+  grid-template-columns: 31% 65%;
+  grid-column-gap: 4%;
+}
+
+.deposit-page.crypto #withdrawal-form .ui.action.input {
+  display: grid;
+  grid-template-columns: 47% 47%;
+  column-gap: 6%;
+}
+
+.deposit-page.crypto #withdrawal-form .ui.action.input .selection {
+  border-radius: 10px;
+}
+
+.deposit-page.crypto #withdrawal-form .ui.action.input input {
+    width: 100%;
+    border-top-right-radius: 10px!important;
+    border-bottom-right-radius: 10px!important;
+}
+
+.deposit-page #withdrawal-form .field {
+  margin-bottom: 40px;
+}
+
+.deposit-page #withdrawal-form textarea {
+  border: unset;
+  background: #F0F3F6;
+}
+
+.deposit-page #withdrawal-form .submit {
+    grid-row: 5/5;
+    grid-column: 2;
+    max-width: 250px;
+    margin-left: auto;
+}
+
+/*------------- end withdrawal-form-------------------*/
+
+/*------------- Account page-------------------*/
+.frontend-account-show table {
+  margin-bottom: 70px !important;
+  border: unset !important;
+}
+
+.frontend-account-show #header {
+    margin-bottom: 70px;
+}
+
+.frontend-account-show .ui.table thead th {
+  background: transparent;
+  border: unset;
+}
+
+.frontend-account-show .ui.table tbody tr {
+  background: #F0F3F6;
+}
+
+.frontend-account-show .ui.table tr td:first-child,
+.frontend-account-show .ui.table tr th:first-child {
+  padding-left: 30px;
+}
+
+.frontend-account-show .ui.table tr td:last-child {
+  padding-right: 30px;
+}
+
+.frontend-account-show .ui.table tr td {
+  color: #000;
+  opacity: 0.6;
+  font-size: 15px;
+  text-align: left;
+}
+
+.frontend-account-show .ui.selectable.table tbody tr:hover {
+  background: #F0F3F6 !important;
+}
+
+.frontend-account-show .ui.table tr th {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+  text-align: left;
+}
+
+.frontend-account-show .mobile-center {
+  opacity: 1 !important;
+}
+
+.frontend-account-show .mobile-center .ui.menu {
+  background: transparent;
+  box-shadow: unset;
+  border: unset;
+}
+
+.frontend-account-show table .ui.dropdown.item {
+    padding: 13px 30px;
+    background: #181E40;
+    border-radius: 100px !important;
+    color:  #fff;
+}
+
+.frontend-account-show .ui.menu .dropdown.item:hover {
+  color: #fff;
+  background: #FF3B42;
+}
+
+/*------------- End Account page-------------------*/
+
+#asset-search .ui.icon.input {
+  width: 100%;
+  height: 48px;
+}
+
+#asset-search .ui.icon.input input {
+  background: #F0F0F0;
+  border: unset;
+}
+
+.trade .spacer {
+  padding-bottom: 30px;
+  padding-right: 30px;
+}
+
+.trade .spacer .mobile-only {
+  display: none;
+}
+
+.user-main .trade .ui.blue.header {
+  text-align: left;
+}
+
+.user-main .trade .mobile.only.right.aligned {
+  text-align: right;
+}
+
+.user-main .ui.blue.header {
+  color: #181E40 !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.pointing .text {
+  color: #000;
+}
+
 #header .masthead {
-  background: #0444bb;
+  border-bottom: 1px solid #F0F0F0;
+  background: transparent;
+  margin-bottom:  20px;
 }
 
-#header .masthead .row {
-  height: 130px;
+#header .ui.container .ui.grid {
+  margin-left: 0;
+  margin-right: 0;
 }
 
-#header .masthead .logo {
+/*#header .masthead .logo {
   width: auto;
   height: 86px;
   margin-left: 25px;
-}
+}*/
 
 #header .masthead .primary-nav {
   list-style: none;
@@ -703,9 +983,9 @@ body {
 
 #header .masthead .primary-nav a,
 #header .masthead .primary-nav .text {
-  font-size: 18px;
-  font-weight: 300;
-  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  color: #000;
 }
 
 #header .masthead .primary-nav .ui.dropdown .menu {
@@ -738,27 +1018,105 @@ body {
   color: #fff;
 }
 
+/* ------ Desposite and Withdraws methods --------- */
+.menu-payment {
+  max-width: 550px;
+  margin: auto;
+  margin-top: 45px;
+  margin-bottom: 150px;
+}
+
+.menu-payment .payment-methos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 43px;
+    row-gap: 43px;
+}
+
+.menu-payment .payment-item {
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+  height: 204px;
+  max-width: 250px;
+  border-radius: 10px;
+  background: #F0F3F6;
+}
+
+.menu-payment .payment-logo {
+  display: block;
+  width: 58px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.menu-payment .payment-logo img {
+  width: 100%;
+}
+
+.menu-payment .payment-item p{
+  color: #181E40;
+  font-size: 23px;
+}
+
+/* ------ End Desposite and Withdraws methods --------- */
+
+.frontend-competitions-show .assets-all .item,
+.frontend-competitions-show .assets-all .ui.divided.items>.item:first-child {
+  cursor: pointer;
+  padding: 10px !important;
+}
+
+.frontend-competitions-show .assets-all .item,
+.frontend-competitions-show .assets-all .item .header,
+.frontend-competitions-show .assets-all .item .meta {
+  color: #fff !important;
+}
+
+.frontend-competitions-show .assets-all .item:hover,
+.frontend-competitions-show .assets-all .item:hover .header,
+.frontend-competitions-show .assets-all .item:hover .meta {
+  color: #fff;
+  background: #FF3B42;
+}
+
 /* ------ Top Header --------- */
 
 /* ------ Sidebar ------------ */
 
 .sidebar-nav {
   margin: 0;
-  padding: 0;
   list-style: none;
+  margin-left: -1rem;
+  padding: 40px 50px;
+  background: #181E40;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.sidebar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .sidebar-nav i {
   display: none;
 }
 
+
 .sidebar-nav .item {
   display: block;
-  font-weight: 300;
-  font-size: 16px;
+  font-size: 25px;
+  color: #fff;
+  font-weight: 400;
   text-transform: capitalize;
-  color: black;
-  border-bottom: 1px solid #ededed;
   padding: 20px 5px 20px 40px;
   background: url("/images/ico-account-normal.png") no-repeat left center transparent;
   background-size: 30px;
@@ -766,7 +1124,7 @@ body {
 
 .sidebar-nav .item:hover,
 .sidebar-nav .item.active {
-  color: #5145ff;
+  color: #FF3B42;
 }
 
 .sidebar-nav .item-account .item {
@@ -812,6 +1170,93 @@ body {
 .sidebar-nav .item-support .item:hover,
 .sidebar-nav .item-support .item.active {
   background-image: url("/images/ico-support-hover.png");
+}
+
+.sidebar-nav .item-deposit .item {
+  background-image: url("/images/deposit.png");
+}
+
+.sidebar-nav .item-deposit .item:hover,
+.sidebar-nav .item-deposit .item.active {
+  background-image: url("/images/deposit-hover.png");
+}
+
+.sidebar-nav .item-withdrawls .item {
+  background-image: url("/images/withdrawls.png");
+}
+
+.sidebar-nav .item-withdrawls .item:hover,
+.sidebar-nav .item-withdrawls .item.active {
+  background-image: url("/images/withdrawls-hover.png");
+}
+
+.sidebar-nav .item-club .item {
+  background-image: url("/images/club.png");
+}
+
+.sidebar-nav .item-club .item:hover,
+.sidebar-nav .item-club .item.active {
+  background-image: url("/images/club-hover.png");
+}
+
+
+.sidebar-nav .item-friends .item {
+  background-image: url("/images/invite.png");
+}
+
+.sidebar-nav .item-friends .item:hover,
+.sidebar-nav .item-friends .item.active {
+  background-image: url("/images/invite-hover.png");
+}
+
+.sidebar-nav .item-funds .item {
+  background-image: url("/images/funds.png");
+}
+
+.sidebar-nav .item-funds .item:hover,
+.sidebar-nav .item-funds .item.active {
+  background-image: url("/images/funds-hover.png");
+}
+
+.sidebar-nav .item-settings .item {
+  background-image: url("/images/settings.png");
+}
+
+.sidebar-nav .item-settings .item:hover,
+.sidebar-nav .item-settings .item.active {
+  background-image: url("/images/settings-hover.png");
+}
+
+.sidebar-nav .item-help .item {
+  background-image: url("/images/help.png");
+}
+
+.sidebar-nav .item-help .item:hover,
+.sidebar-nav .item-help .item.active {
+  background-image: url("/images/help-hover.png");
+}
+
+.sidebar-nav .item-logout .item {
+  cursor: pointer;
+  background-image: url("/images/logout.png");
+}
+
+.sidebar-nav .item-logout .item form {
+  margin: 0;
+}
+
+.sidebar-nav .item-logout .item:hover,
+.sidebar-nav .item-logout .item.active {
+  background-image: url("/images/logout-hover.png");
+}
+
+.more-links {
+  font-size: 25px;
+  color: #fff;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-top: 35px !important;
+  margin-bottom: 24px !important;
 }
 
 /* ------ Sidebar ------------ */
@@ -935,10 +1380,95 @@ body {
 .trade-wrapper .ui.table {
   font-size: 14px;
   background-color: #fff;
+  border-radius: unset;
 }
 
 .trade-wrapper .ui.table thead th {
   font-weight: 700;
+}
+
+.trade-wrapper .custom-row {
+  display: flex;
+}
+
+.trade-wrapper .custom-row .graph-wrapper {
+  width: 100%;
+  background: #000000;
+}
+
+.trade-wrapper .custom-row .input-wrapper {
+  width: 270px;
+  padding: 30px 5px;
+  background: #18191B;
+}
+
+.trade-wrapper .custom-row .graph-wrapper #asset-chart-container {
+    display: block !important;
+}
+
+.trade-wrapper .custom-row .ui.statistic>.value h3 {
+  font-size: 25px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.trade-wrapper .custom-row .ui.statistic .label {
+  font-size: 13px;
+  color: #181E40;
+  background: #fff;
+  border-radius: 100px;
+  padding: 11px 27px;
+  margin-top: 0;
+}
+
+.trade-wrapper .custom-row .ui.buttons .positive,
+.trade-wrapper .custom-row .ui.buttons .negative {
+  font-size: 12px;
+  padding: 7px 15px;
+  border-radius: 50px;
+}
+
+.trade-wrapper .custom-row .ui.buttons input {
+  width: 72px;
+  height: 27px;
+  border-radius: 50px;
+  border: 1px solid #fff;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.trade-wrapper .custom-row .ui.buttons {
+  font-size: inherit;
+  margin-top: 65px;
+}
+
+.trade-wrapper .custom-row .ui.pointing.label,
+.trade-wrapper .custom-row .ui.basic.red.label {
+    background: transparent;
+    color: #fff;
+    margin-top: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.frontend-competitions-show #open-trades-table {
+    background: #212325;
+    color: #fff;
+}
+
+.frontend-competitions-show #open-trades-table th {
+    color: #fff;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.frontend-competitions-show .trade-wrapper {
+  border: unset;
+}
+
+.frontend-competitions-show .secondary-info {
+  color: #fff;
 }
 
 /* ------ Competition/Trade Show Inner ------------ */
@@ -993,18 +1523,84 @@ body {
   line-height: 1em;
 }
 
+
+.frontend-competitions-history .ui.basic.green.label,
+.frontend-competitions-show .ui.basic.green.label{
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 100px;
+  background: #6DC102 !important;
+}
+
+
+.frontend-competitions-history .ui.basic.red.label,
+.frontend-competitions-show .ui.basic.red.label {
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 100px;
+  background: #FF3B42 !important;
+}
+
+.frontend-competitions-show button.ui.teal.small.button {
+    border-radius: 100px;
+    background: #FF3B42;
+}
+
+.frontend-competitions-show button.ui.teal.small.button:hover {
+  background: #181E40 ;
+}
+
+  .frontend-competitions-show #header{
+      background: #FFF;
+      margin-top: -30px;
+      padding-top: 30px;
+      margin-left: -30px;
+      padding-left: 30px;
+  }
+
+  .frontend-competitions-show .thirteen {
+    background: #000;
+    padding-right: 0 !important;
+  }
+
+  .frontend-competitions-show .ui.stackable.grid>.wide.column {
+    padding-right: 0 !important;
+  }
+
+  .frontend-competitions-show .ui.stackable.grid>.wide.column.mobile-col {
+    padding-left: 20px;
+  }
+
+  .frontend-competitions-show .container-fluid, 
+  .frontend-competitions-show .container-fluid.ui.grid {
+    width: 100%;
+  }
+
+  .frontend-competitions-show .ui.message {
+    color: #fff;
+    border: unset;
+    border-radius: unset;
+    background: #000;
+  }
+
 /* ------ Competition/Trade Right Sidebar --------- */
 
 /* ------ Footer --------- */
 
 #footer {
-  background-color: #0444bb;
+  background-color: #F1F1F1 !important;
 }
 
-#footer .header img {
+/*#footer .header img {
   width: auto;
   height: 60px;
-}
+}*/
 
 /* ------ Footer --------- */
 
@@ -1032,21 +1628,59 @@ body {
   width: 100%;
 }
 
-.logo{
-  max-width: 197px;
-  /*margin-bottom: 90px;*/
-  margin-top: 15px;
+#footer .logo{
+  max-width: 150px;
 }
 /* ------  admin Leads Page  --------- */
 
-@media only screen and (max-width: 767px) {
-  #header .masthead .row {
-    height: 100px;
+@media only screen and (max-width: 1920px) {
+  .sidebar-nav {
+    padding: 20px 30px;
   }
 
-  #header .masthead .logo {
-    width: auto;
-    height: 60px;
+  .sidebar-nav .item {
+    font-size: 18px;
+    padding: 14px 5px 14px 40px;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .account-info .inner-content {
+    padding: 20px 40px;
+  }
+}
+
+
+@media only screen and (max-width: 1300px) {
+  .sidebar-nav {
+    padding: 20px;
+  }
+
+  .sidebar-nav .item {
+    font-size: 16px;
+    padding: 14px 5px 14px 40px;
+  }
+
+  .user-main .ui.grid>[class*="three wide"].column {
+      width: 25%!important;
+  }
+
+  .user-main .ui.grid>[class*="thirteen wide"].column {
+      width: 75%!important;
+  }
+
+  .account-info .inner-content {
+    padding: 20px 15px;
+  }
+
+  .frontend-account-show table .ui.dropdown.item {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .monitor-and-below-center {
+    text-align: center !important;
   }
 }
 
@@ -1062,3 +1696,216 @@ body {
   }
 }
 
+@media only screen and (max-width: 991px) {
+  .tablet-and-below-center {
+    text-align: center !important;
+  }
+
+  .masthead .menu .item {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .stackable.table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .stackable.table tbody tr td {
+    display: block;
+    text-align: right;
+  }
+
+  .stackable.table tbody tr td:before {
+    content: attr(data-title);
+    float: left;
+    font-weight: bold;
+  }
+
+  .stackable.table tbody tr td .column:first-child {
+    text-align: left;
+  }
+
+  .stackable.table tbody tr td .column:last-child {
+    text-align: right;
+  }
+
+  .stackable.table tfoot tr td {
+    text-align: center !important;
+  }
+
+  #menu-top-bar h4 {
+    display: inline;
+  }
+
+  #trade-form .fields {
+    margin-bottom: 1em;
+  }
+
+  #asset-chart-container button {
+    margin-bottom: 0.25em;
+  }
+
+  .account-info {
+    justify-content: center;
+  }
+
+  .frontend-account-show .ui.table tr td:first-child, 
+  .frontend-account-show .ui.table tr th:first-child {
+      padding-left: 10px;
+  }
+
+  .frontend-account-show .ui.table tr td {
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #header #menu-top-bar {
+    padding-bottom: 0;
+    margin-top: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .user-main .ui.grid>[class*="thirteen wide"].column {
+      width: 100%!important;
+  }
+
+   .mobile-center {
+    text-align: center !important;
+  }
+
+  .pagination .item:not(.active):not(:first-child):not(:last-child) {
+    display: none !important;
+  }
+
+  .labels .label {
+    display: block;
+  }
+
+  .assets.items {
+    text-align: center;
+  }
+
+  #footer {
+    padding: 20px 30px;
+    margin-right: -2em;
+  }
+
+  .frontend-competitions-show #footer {
+    margin-left: 1rem important;
+    margin-right: 1rem important;
+  }
+
+  #footer .ui.grid>.row>.column {
+    padding: 0;
+  }
+
+  .frontend-competitions-show #header {
+    margin-right: -1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .frontend-competitions-show .assets-all .item {
+    margin-bottom: 20px;
+  }
+
+  .trade .spacer {
+    padding-right: 0;
+  }
+
+  .trade .spacer .mobile-only {
+    display: block;
+  }
+
+  .trade .spacer .desktop-style {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  .trade .spacer .desktop-only {
+    display: none !important;
+  }
+
+  /*-------------withdrawal-form-------------------*/
+  .deposit-page #withdrawal-form,
+  .deposit-page.crypto #withdrawal-form,
+  .deposit-page.crypto #withdrawal-form .ui.action.input {
+    display: block;
+  }
+
+  .deposit-page #deposit-form .eight.wide.field:last-child {
+    padding-left: 0.5em;
+    margin-bottom: 20px;
+  }
+
+  .deposit-page #deposit-form .ui.selection.search.dropdown {
+    max-width: none;
+  }
+
+  .deposit-page.crypto #withdrawal-form .ui.action.input input {
+    margin-bottom: 40px;
+  }
+
+  .frontend-competitions-show .container-fluid, .container-fluid.ui.grid {
+    width: 100%;
+  }
+
+  .frontend-competitions-show .ui.grid .ui.stackable.grid {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .trade-wrapper .custom-row {
+      flex-direction: column;
+  }
+
+  .trade-wrapper .custom-row .input-wrapper {
+    width: 100%;
+  }
+
+  .trade-wrapper .custom-row .ui.buttons {
+    margin-top: 30px;
+  }
+
+  .frontend-competitions-show .ui.three.wide.column.tablet.stackable.mobile-col {
+      width: 100% !important;
+  }
+
+ .frontend-competitions-show .ui.stackable.grid>.wide.column {
+      padding: 1rem 1rem!important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #footer .row {
+    flex-direction: column;
+  }
+
+  #footer .ui.grid>.row>.column {
+    width: 100%;
+    text-align: center;
+  }
+
+  /*#footer .ui.grid>.row>[class*="right aligned"].column.column {
+    text-align: center;
+  }*/
+}
+
+@media only screen and (max-width: 480px) {
+  .user-main .ui.blue.header {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .user-main .ui.blue.header {
+    font-size: 17px;
+  }
+}

@@ -8,11 +8,13 @@ Route::name('frontend.')
   ->group(function () {
     Route::get('users/{user}/account', 'AccountController@show')->name('account.show');
     // deposits
+    Route::get('users/{user}/depositemethods', 'AccountController@getdeposit')->name('account.deposite'); 
     Route::get('users/{user}/deposits', 'DepositController@index')->name('deposits.index');
     Route::get('users/{user}/deposits/create/{payment_method}', 'DepositController@create')->name('deposits.create');
     Route::post('users/{user}/deposits/create/{payment_method}', 'DepositController@store')->name('deposits.store');
     Route::get('users/{user}/deposits/complete/{payment_method}', 'DepositController@complete')->name('deposits.complete');
     // withdrawals
+    Route::get('users/{user}/withdrawalsmethods', 'AccountController@getwithdrawals')->name('account.withdrawals'); 
     Route::get('users/{user}/withdrawals', 'WithdrawalController@index')->name('withdrawals.index');
     Route::get('users/{user}/withdrawals/create/{withdrawal_method}', 'WithdrawalController@create')->name('withdrawals.create');
     Route::post('users/{user}/withdrawals/create/{withdrawal_method}', 'WithdrawalController@store')->name('withdrawals.store');

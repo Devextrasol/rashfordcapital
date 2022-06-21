@@ -5,14 +5,20 @@
 @endsection
 
 @section('content')
-  <div class="ui stackable grid container">
+  <div class="ui stackable grid container-fluid">
+    <div class="tablet only computer only three wide column">
+      @include('pages.frontend.competitions.sidebar')
+    </div>
+    <div class="ui thirteen wide column tablet stackable">
+      
+      @include('includes.frontend.header')  
     <div class="column">
-      <div class="ui {{ $inverted }} segment">
+      <div class="ui {{ $inverted }} segment deposit-page"> 
 
         <form id="deposit-form" class="ui {{ $inverted }} form" method="POST" action="{{ route('frontend.deposits.store', [Auth::user(), $payment_method]) }}">
           {{ csrf_field() }}
           <div class="fields">
-            <div class="{{ $payment_method->code == 'card' ? 'sixteen' : 'twelve' }} wide field {{ $errors->has('amount') ? 'error' : '' }}">
+            <div class="{{ $payment_method->code == 'card' ? 'sixteen' : 'eight' }} wide field {{ $errors->has('amount') ? 'error' : '' }}">
               <label>{{ __('accounting::text.deposit_amount') }}</label>
               <div class="ui right labeled action input">
                 <input id="deposit-amount-input" type="text" name="amount" placeholder="{{ __('accounting::text.amount') }}" value="{{ old('amount', Request::get('amount')) }}" required autofocus>
@@ -50,7 +56,7 @@
             @if($payment_method->code == 'card')
               <input type="hidden" name="currency" value="{{ $account->currency->code }}">
             @else
-              <div class="four wide field {{ $errors->has('amount') ? 'error' : '' }}">
+              <div class="eight wide field {{ $errors->has('amount') ? 'error' : '' }}">
                 <label>{{ __('accounting::text.payment_currency') }}</label>
                 <select id="deposit-currency-input" name="currency" class="ui selection search dropdown">
                   @foreach($payment_method_currencies as $currency)
@@ -91,6 +97,8 @@
         </form>
       </div>
     </div>
+    @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
+  </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -2,109 +2,33 @@
     $competition = \App\Models\Competition::all()->last();
 @endphp
  
-<div id="header">
+<div id="header" class="trade">
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui container-fluid">
-            <div class="ui equal width middle aligned grid">
-                <div class="row">
-                    <div class="left aligned column"> 
-                        @if(Route::currentRouteName()=='frontend.competitions.history')
-                            <h1 class="ui blue header">Trade {{ __('app.history') }}</h1>
-                        @elseif(Route::currentRouteName()=='frontend.assets.index')
-                            <h1 class="ui blue header">{{ __('app.coins') }}</h1>
-                        @elseif(Route::currentRouteName()=='frontend.assets.index')
-                            <h1 class="ui blue header">{{ __('app.coins') }}</h1>
-                        @elseif(Route::currentRouteName()=='frontend.deposits.create')
-                            <h1 class="ui blue header">@yield('title')</h1>
-                        @elseif(Route::currentRouteName()=='frontend.withdrawals.create')
-                            <h1 class="ui blue header">@yield('title')</h1>
-                        @elseif(Route::currentRouteName()=='frontend.account.show')
-                            <h1 class="ui blue header">{{ __('accounting::text.account') }}</h1>
-                        @elseif(Route::currentRouteName()=='frontend.account.deposite')
-                            <h1 class="ui blue header">deposit</h1>
-                        @elseif(Route::currentRouteName()=='frontend.account.withdrawals')
-                            <h1 class="ui blue header">withdrawal</h1> 
-                        @endif 
-                        {{-- @if(auth()->check())
-                            <a href="{{ route('frontend.competitions.index') }}">
-                                <img src="{{ asset('images/home-logo.png') }}" class="logo">
-                                {{ __('app.app_name') }} 
-                            </a>
-                        @else
-                            <a href="{{ route('frontend.index') }}">
-                                <img src="{{ asset('images/home-logo.png') }}" class="logo">
-                                {{ __('app.app_name') }}
-                            </a>
-                        @endif --}}
-                    </div>
-                    <div class="mobile only right aligned column">
+            <div class="ui stackable three column grid spacer">
+              <div class="four wide column desktop-style">
+                  <h1 class="ui blue header">{{ __('app.trade') }}</h1>
+                  <div class="mobile-only right aligned column">
                         <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
                     </div>
-                     <div class="tablet only computer only right aligned column">
-                        <ul class="primary-nav">
-                           {{--  <li>
-                                 <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
-                                    <i class="trophy icon"></i>
-                                    {{ __('app.trade') }}
+              </div>
+              <div class="eight wide column">
+                  @if(Route::currentRouteName()=='frontend.competitions.show')
+                    <div id="asset-search" class="ui tablet-and-below-center  {{ $inverted }} search">
+                      <div class="ui icon input">
+                        <input class="prompt" type="text" placeholder="{{ __('app.search') }}">
+                        <i class="search icon"></i>
+                      </div>
+                      <div class="search-results"></div>
 
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('frontend.help') }}" class="item {{ Route::currentRouteName()=='frontend.help' ? 'active' : '' }}">
-                                    <i class="question icon"></i>
-                                    {{ __('app.help') }}
-                                </a>
-                            </li> --}}
-                            {{-- @if(auth()->check())
-                                <li>
-                                    <div class="right menu aqurzzz-menu-1">
-                                        @if(session()-> has('impersonate_by'))
-                                            <div class="ui item">
-                                                <a href="/admin/imperstop" class="item">
-                                                    <i class="setting icon"></i>
-                                                    Back to Admin
-                                                </a>
-                                            </div>
-                                        @endif
-
-
-
-                                        <div class="ui item dropdown">
-                                            <div class="text">
-                                                <img class="ui avatar image" src="{{ auth()->user()->avatar_url }}">
-                                                {{ auth()->user()->name }}
-                                            </div>
-                                            <i class="chevron down icon"></i>
-                                            <div class="menu">
-
-                                                @if(in_array(auth()->user()->role , ['ADMIN' , 'FLOOR_MANAGER' , 'SALES']))
-                                                    <a href="{{ route('backend.dashboard') }}?dashboard" class="item">
-                                                        <i class="setting icon"></i>
-                                                        {{ __('app.backend') }}
-                                                    </a>
-                                                @endif
-                                                <a href="{{ route('frontend.users.show', auth()->user()) }}" class="item">
-                                                    <i class="user icon"></i>
-                                                    {{ __('users.profile') }}
-                                                </a>
-
-                                                @packageview('includes.frontend.header')
-
-                                                <log-out-button token="{{ csrf_token() }}" class="item">
-                                                    <i class="sign out alternate icon"></i>
-                                                    {{ __('auth.logout') }}
-                                                </log-out-button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endif --}}
-                            <li>
-                                <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
-                            </li>
-                        </ul>
                     </div>
-                </div>
+                @endif
+              </div>
+              <div class="four wide column desktop-only">
+                  <div class="mobile only right aligned column">
+                        <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
+                    </div>
+              </div>
             </div>
         </div>
     </div>
@@ -265,5 +189,5 @@
         <h3>MARGIN LEVEL</h3>
         <p><span>1,645.78%</span></p>
     </div>
-</div> --}} 
+</div> --}}
 </div>

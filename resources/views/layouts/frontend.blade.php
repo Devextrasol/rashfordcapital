@@ -7,7 +7,7 @@
     @includeWhen(config('settings.gtm_container_id'), 'includes.frontend.gtm-body')
 
     <div id="app">
-        @include('includes.frontend.header')
+        {{-- @include('includes.frontend.header') --}}
 
         <div id="before-content">
             @includeWhen(config('settings.adsense_client_id') && config('settings.adsense_top_slot_id'),
@@ -18,8 +18,8 @@
             @yield('before-content')
         </div>
 
-        <div id="content">
-            <div class="ui stackable grid container">
+        <div id="content" class="user-main">
+            <div class="ui stackable grid container hide-frontend">
                 <div class="column">
                     <h1 class="ui {{ $settings->color }} header">
                         @yield('title')
@@ -42,7 +42,7 @@
             )
         </div>
 
-        @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
+        {{-- @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer']) --}}
     </div>
 
     @include('includes.frontend.scripts')

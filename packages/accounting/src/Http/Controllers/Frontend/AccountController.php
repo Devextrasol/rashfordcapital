@@ -37,11 +37,47 @@ class AccountController extends Controller {
       ->orderBy('id', 'desc')
       ->paginate($this->rowsPerPage);
 
+
     return view('accounting::pages.frontend.account.show', [
       'account' => $user->account,
       'payment_methods' => $paymentMethods,
       'withdrawal_methods' => $withdrawalMethods,
       'transactions' => $transactions
     ]);
+  }
+
+  public function getdeposit(Request $request, User $user) {
+    if ($user->id != $request->user()->id)
+      abort(404);
+
+    if (!$user->account) {
+      AccountService::create($user);
+      $user->load('account');
+    }
+
+    $paymentMethods = PaymentMethod::where('status', PaymentMethod::STATUS_ACTIVE)->get();
+
+    //$withdrawalMethods = WithdrawalMethod::where('status', WithdrawalMethod::STATUS_ACTIVE)->get();
+    return view('accounting::pages.frontend.account.deposite', [
+      'payment_methods' => $paymentMethods
+    ]); 
+  }
+
+  public function getwithdrawals(Request $request, User $user) {
+    if ($user->id != $request->user()->id)
+      abort(404);
+
+    if (!$user->account) {
+      AccountService::create($user); 
+      $user->load('account');
+    }
+
+    //$paymentMethods = PaymentMethod::where('status', PaymentMethod::STATUS_ACTIVE)->get();
+
+    $withdrawalMethods = WithdrawalMethod::where('status', WithdrawalMethod::STATUS_ACTIVE)->get();
+    //dd($withdrawalMethods);
+    return view('accounting::pages.frontend.account.withdrawals', [
+      'withdrawal_methods' => $withdrawalMethods
+    ]); 
   }
 }
