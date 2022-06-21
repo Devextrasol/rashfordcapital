@@ -1,8 +1,8 @@
-@extends('layouts.frontend_new')
+@extends('layouts.index_new')
 
 @section('content')
 <!----- headre------------>
-    <header><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   {{--  <header><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <div class="header">
 
         <div class="web-search" id="websearch">
@@ -76,7 +76,7 @@
       </div>
       </div>
       </div>
-    </header>
+    </header> --}}
 <!------body-------------->
  <div class="what-we-offer">
       <div class="ui main container">

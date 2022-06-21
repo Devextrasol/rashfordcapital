@@ -181,10 +181,40 @@ body {
 
 .header1 {
   background-image: url(/images/home-bg.png);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: calc(100vh - 200px);
+  height: 826px;
+}
+
+.header1.privacy-policy-bg,
+.header1.terms-of-use-bg {
+  height: 610px;
+  background-image: url(/images/privacy-policy-bg.jpg);
+}
+
+.header1.about-us-bg {
+  height: 610px;
+  background-image: url(/images/about-bg.jpg);
+}
+
+.header1.contact-us-bg {
+  height: 610px;
+  background-image: url(/images/contact-us-bg.jpg);
+}
+
+.header1.faq-bg {
+  height: 610px;
+  background-image: url(/images/faq-bg.jpg);
+}
+
+.page-title {
+  max-width: 852px;
+  margin: auto;
+}
+
+#bg-text {
+  height: 100%;
 }
 
 .ui.grid.krypto-nav {
@@ -236,8 +266,10 @@ a.nav-link.hide {
 }
 
 div#text-wrap {
-  padding-top: 60px;
+  /*padding-top: 60px;*/
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .bg-text h1 {
@@ -811,7 +843,7 @@ div#websearch.web-search {
   width: 100%;
   background: #181E40;
   z-index: 99;
-  padding: 32px 0px;
+  padding: 35px 0px;
   display: none;
 }
 
@@ -1306,7 +1338,7 @@ img.login-logo.main-logo {
   .page-header .test.myclas {
     position: relative;
     z-index: 9;
-    background: #313fa0;
+    background: #181E40;
   }
 
   img.ui.fluid.image.display-tablet {
@@ -1408,6 +1440,16 @@ img.login-logo.main-logo {
     width: 100%;
     height: 400px;
   }
+
+.header1.about-us-bg,
+.header1.privacy-policy-bg,
+.header1.terms-of-use-bg,
+.header1.contact-us-bg,
+.header1.faq-bg {
+  height: 485px;
+}
+
+
   table.ui.very.basic.table {
     display: none;
   }
@@ -1477,9 +1519,9 @@ img.login-logo.main-logo {
 /*////////////// 700 screen////////////////// */
 
 @media only screen and (max-width: 700px) {
-  .page-header {
+  /*.page-header {
     height: 295px;
-  }
+  }*/
 
   .trending-btn-2 {
     margin-top: 0px;
@@ -1567,6 +1609,14 @@ img.login-logo.main-logo {
 
 @media only screen and (max-width: 550px) {
   .page-header {
+    height: 260px;
+  }
+
+  .header1.about-us-bg,
+  .header1.privacy-policy-bg,
+  .header1.terms-of-use-bg,
+  .header1.contact-us-bg,
+  .header1.faq-bg {
     height: 260px;
   }
 }

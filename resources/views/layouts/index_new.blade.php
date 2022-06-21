@@ -24,7 +24,15 @@
         <div id="content">
             <!-- ----------HEADER---------- -->
             <header class="page-header">
-              <div class="header1">
+            @php
+            use Illuminate\Support\Facades\Request;
+            $pageName = Request::segment(count(Request::segments()));
+            
+            @endphp 
+              {{-- @if(Route::currentRouteName()=='frontend.competitions.history')
+
+              @endif --}}
+              <div class="header1 {{ $pageName }}-bg"> 
                 <div class="web-search ui computer only" id="websearch">
                   <div class="ui massive left icon input main-search" id="site-search">
                     <input type="text" placeholder="Search..." type="Search" class="new-search">
@@ -93,18 +101,40 @@
                     </div>
                     <div class="ui grid bg-text container" id="bg-text">
                       <div class="sixteen wide tablet sixteen wide computer column" id="text-wrap">
-                        <div class="mytext">
-                        <h1>
-                        Trade CFDs on Bitcoin, Etherum,<br>
-                        Ripple and more than 1000 <br>Cryptocurrencies
-                        </h1>
-                        <p class="p-margin">
-                          Reliable. Simple. Innovative. <br>
-                          Join millions who have
-                          already traded with {{ env('_app_name_f') }}.
-                        </p>
-                        <a href="{{ route('register') }}" class="trending-btn-2">Start Trading</a>
-                        </div>
+                        @if(Request::is('/'))
+                          <div class="mytext">
+                            <h1>
+                            Trade CFDs on Bitcoin, Etherum,<br>
+                            Ripple and more than 1000 <br>Cryptocurrencies
+                            </h1>
+                            <p class="p-margin">
+                              Reliable. Simple. Innovative. <br>
+                              Join millions who have
+                              already traded with {{ env('_app_name_f') }}.
+                            </p>
+                            <a href="{{ route('register') }}" class="trending-btn-2">Start Trading</a>
+                          </div>
+                        @else
+                          {{-- @php
+                            $pageName = str_replace('-', ' ', $pageName);
+                          @endphp --}}
+                          <div class="page-title">
+                            @if($pageName == 'faq')
+                              <h1>Frequently Asked Questions</h1>
+                              <p class="p-margin">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Viverra tempor risus enim ut arcu. 
+                            </p>
+                            @elseif($pageName == 'contact-us')
+                              <h1>Send us an Email</h1>
+                              <p class="p-margin">
+                              The response time may be longer than usual, due to the high number of new traders. We are working around the clock to speed up the process. Thank you for your patience.
+                            </p>
+                            @else
+                              <h1>{{ ucwords(str_replace('-', ' ', $pageName)) }}</h1>
+                            @endif
+                          </div>
+                          
+                        @endif 
                       </div>
                       <div class="four wide column"></div>
                     </div>
