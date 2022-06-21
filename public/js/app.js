@@ -79603,6 +79603,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this3 = this;
 
             axios.get('/assets/all').then(function (response) {
+                //console.log(response);
                 if (response.status == 200) {
                     _this3.assetsAll = response.data;
                 }

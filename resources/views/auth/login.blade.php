@@ -30,7 +30,7 @@
           {{ csrf_field() }}
           <h2 class="plz-login">Please Login Your Account!</h2>
           <p class="no-account">Don't have an account? <br class="desktop only"> Create your account, it takes less then a minute.</p>
-          <a href="{{ route('register') }}" class="sign-up form-button">Sign Up</a>
+          <a href="{{ route('register') }}" class="sign-up form-button">Start Trading</a>
 
           <div class="field">
             <?php
@@ -41,12 +41,12 @@
             }
             ?>
             <input type="text" name="email" id="email" placeholder="Enter {{ __('auth.email') }}" value="{{ old('email') }}" required value="{{@$email}}">
-            <label for="email">{{ __('auth.email') }} Address</label>
+            {{-- <label for="email">{{ __('auth.email') }} Address</label> --}}
           </div>
 
           <div class="field">
             <input type="password" name="password" id="password" placeholder="Enter {{ __('auth.password') }}" required value="{{@$pass}}">
-            <label for="password">{{ __('auth.password') }}</label>
+            {{-- <label for="password">{{ __('auth.password') }}</label> --}}
           </div>
 
           <div class="field checkbox">
@@ -66,11 +66,13 @@
             </div>
           @endif
 
-          <button class="[{disabled: submitted, loading: submitted}, 'ui {{ $settings->color }} fluid large submit button']" type="submit">Login</button>
+          <button class="[{disabled: submitted, loading: submitted}, 'ui {{ $settings->color }} fluid large submit button']" type="submit">Sign in</button>
 
           {{-- <div class="submit-btn"><button :class="[{disabled: submitted, loading: submitted}, 'ui {{ $settings->color }} fluid large submit button']">{{ __('auth.login') }}</button></div> --}}
+          <div class="center-block">
           <a href="{{ url('page/terms-of-use') }}">Term and Conditions</a>
           <a href="{{ url('page/privacy-policy') }}">Privacy Policy</a>
+          </div>
         </form>
         </loading-form>
         @social
@@ -102,7 +104,7 @@
         @endsocial
       </div>
     </div>
-      <div class="nine wide column"><div class="care-center-2">
+      <div class="nine wide column image-column"><div class="care-center-2">
         <img src="{{ asset('images/login.jpg') }}" class="ui fluid image care-img" alt="">
       </div>
     </div>

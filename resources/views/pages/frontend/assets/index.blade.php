@@ -12,7 +12,7 @@
         </div>
 
     <div class="ui thirteen wide column tablet stackable">
-        <h1 class="ui blue header">{{ __('app.coins') }}</h1>
+        @include('includes.frontend.header') 
         <div class="column">
             @if($assets->isEmpty())
                 <div class="ui segment">
@@ -49,6 +49,7 @@
         <div class="right aligned column">
             {{ $assets->appends(['sort' => $sort])->appends(['order' => $order])->links() }}
         </div>
+        @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
     </div>
 </div>
 @endsection

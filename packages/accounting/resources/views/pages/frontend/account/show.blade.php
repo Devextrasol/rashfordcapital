@@ -11,7 +11,8 @@
         </div>
 
     <div class="ui thirteen wide column tablet stackable">
-<h1 class="ui blue header">{{ __('accounting::text.account') }}</h1>
+      @include('includes.frontend.header')
+{{-- <h1 class="ui blue header">{{ __('accounting::text.account') }}</h1> --}}
 @if($account->_balance < 1)
   <div class="ui negative message">
     <i class="close icon"></i>
@@ -63,7 +64,7 @@
                       @endforeach
                     </div>
                   </div>
-                </div>
+                </div> 
               @endif
               @if(!$withdrawal_methods->isEmpty())
                 <div class="ui small compact {{ $inverted }} menu">
@@ -125,6 +126,7 @@
         {{ $transactions->links() }}
       </div>
     @endif
+    @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
   </div>
     </div>
 

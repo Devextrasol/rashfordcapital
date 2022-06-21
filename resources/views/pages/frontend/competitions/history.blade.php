@@ -18,7 +18,8 @@
     </div>
 
     <div class="ui thirteen wide column tablet stackable">
-      <h1 class="ui blue header">Trade {{ __('app.history') }}</h1>
+      
+      @include('includes.frontend.header') 
       <div class="column">
         @if($trades->isEmpty())
           <div class="ui segment">
@@ -111,7 +112,10 @@
       <div class="right aligned column">
         {{ $trades->appends(['sort' => $sort])->appends(['order' => $order])->links() }}
       </div>
+      @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
     </div>
+
+
   </div>
 @endsection
 

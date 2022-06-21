@@ -5,13 +5,19 @@
 @endsection
 
 @section('content')
-    <div class="ui stackable grid container">
+    <div class="ui stackable grid container-fluid">
+    <div class="tablet only computer only three wide column">
+      @include('pages.frontend.competitions.sidebar')
+    </div>
+    <div class="ui thirteen wide column tablet stackable">
+      
+      @include('includes.frontend.header')
         <div class="column">
-            <div class="ui {{ $inverted }} segment">
+            <div class="ui {{ $inverted }} segment deposit-page  @if($withdrawal_method->code=='crypto')crypto @endif"> 
                 <form id="withdrawal-form" class="ui {{ $inverted }} form" method="POST" action="{{ route('frontend.withdrawals.store', [Auth::user(), $withdrawal_method]) }}">
                     {{ csrf_field() }}
                     <div class="field {{ $errors->has('amount') ? 'error' : '' }}">
-                        <label>{{ __('accounting::text.amount') }}</label>
+                        {{-- <label>{{ __('accounting::text.amount') }}</label> --}}
                         <div class="ui right labeled input">
                             <input id="withdrawal-amount-input" type="number" min="0" max="{{$account->balance}}" name="amount" placeholder="{{ __('accounting::text.amount') }}" value="{{ old('amount', Request::get('amount')) }}" required autofocus>
                             <div class="ui basic {{ $inverted }} label">
@@ -21,43 +27,43 @@
                     </div>
                     @if($withdrawal_method->code == 'paypal')
                         <div class="field {{ $errors->has('details.email') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.email') }}</label>
+                            {{-- <label>{{ __('accounting::text.email') }}</label> --}}
                             <input type="email" name="details[email]" placeholder="{{ __('accounting::text.email') }}" value="{{ old('details.email') }}" required autofocus>
                         </div>
                     @elseif($withdrawal_method->code=='wire')
                         <div class="field {{ $errors->has('details.name') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.name') }}</label>
+                           {{--  <label>{{ __('accounting::text.name') }}</label> --}}
                             <input type="text" name="details[name]" placeholder="{{ __('accounting::text.name') }}" value="{{ old('details.name', Auth::user()->name) }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.bank_iban') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.bank_iban') }}</label>
+                            {{-- <label>{{ __('accounting::text.bank_iban') }}</label> --}}
                             <input type="text" name="details[bank_iban]" placeholder="{{ __('accounting::text.bank_iban') }}" value="{{ old('details.bank_iban') }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.bank_swift') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.bank_swift') }}</label>
+                            {{-- <label>{{ __('accounting::text.bank_swift') }}</label> --}}
                             <input type="text" name="details[bank_swift]" placeholder="{{ __('accounting::text.bank_swift') }}" value="{{ old('details.bank_swift') }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.bank_name') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.bank_name') }}</label>
+                            {{-- <label>{{ __('accounting::text.bank_name') }}</label> --}}
                             <input type="text" name="details[bank_name]" placeholder="{{ __('accounting::text.bank_name') }}" value="{{ old('details.bank_name') }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.bank_branch') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.bank_branch') }}</label>
+                            {{-- <label>{{ __('accounting::text.bank_branch') }}</label> --}}
                             <input type="text" name="details[bank_branch]" placeholder="{{ __('accounting::text.bank_branch') }}" value="{{ old('details.bank_branch') }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.bank_address') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.bank_address') }}</label>
+                            {{-- <label>{{ __('accounting::text.bank_address') }}</label> --}}
                             <input type="text" name="details[bank_address]" placeholder="{{ __('accounting::text.bank_address') }}" value="{{ old('details.bank_address') }}" required autofocus>
                         </div>
                         <div class="field {{ $errors->has('details.comments') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.comments') }}</label>
+                            {{-- <label>{{ __('accounting::text.comments') }}</label> --}}
                             <textarea rows="3" name="details[comments]" placeholder="{{ __('accounting::text.comments') }}" autofocus>
                                 {{ old('details.comments') }}
                             </textarea>
                         </div>
                     @elseif($withdrawal_method->code=='crypto')
                         <div class="field {{ $errors->has('details.crypto_address') ? 'error' : '' }}">
-                            <label>{{ __('accounting::text.crypto_address') }}</label>
+                            {{-- <label>{{ __('accounting::text.crypto_address') }}</label> --}}
                             <div class="ui action input">
                             <input type="text" name="details[crypto_address]" placeholder="{{ __('accounting::text.crypto_address') }}" value="{{ old('details.crypto_address') }}" required autofocus>
                                 <select name="details[cryptocurrency]" class="ui selection search dropdown">
@@ -75,5 +81,7 @@
                 </form>
             </div>
         </div>
+        @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
+    </div>
     </div>
 @endsection

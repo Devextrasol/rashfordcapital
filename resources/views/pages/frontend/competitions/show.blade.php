@@ -15,6 +15,8 @@
   <?php
   $userDetails = false;
   $allowedRoles = ['FLOOR_MANAGER', 'ADMIN'];
+  //{{-- $userDetails = \Illuminate\Support\Facades\DB::table('users')->latest()->first();
+
   if (session()->has('impersonate_by')) {
     $userDetails = \Illuminate\Support\Facades\DB::table('users')->where('id', session()->get('impersonate_by'))->first();
     if (is_object($userDetails) && in_array($userDetails->role, $allowedRoles)) {
@@ -31,25 +33,27 @@
       <div class="tablet only computer only three wide column">
         @include('pages.frontend.competitions.sidebar')
       </div>
-
-      <div class="ten wide column">
+ <div class="ui thirteen wide column tablet stackable">
+    @include('includes.frontend.header-trade')
+    <div class="ui stackable grid container-fluid">
+      <div class="ui thirteen wide column tablet stackable inner">
         <div class="ui one column grid trade-labels">
           {{-- @include('pages.frontend.competitions.header') --}}
           <div class="ui stackable grid container">
             <div class="column">
               <div class="ui labels">
                 <template v-if="openTrades.length">
-                  <span class="ui {{ $settings->color }} basic label">{{ __('app.balance') }}: @{{ _balance }} {{-- {{ $competition->currency->code }} --}}</span>
-                  <span class="ui {{ $settings->color }} basic label">{{ __('app.pnl') }}: @{{ _totalUnrealizedPnl }} {{-- {{ $competition->currency->code }} --}}</span>
+                  <span class="ui {{ $settings->color }} basic label">{{ __('app.balance') }}: @{{ _balance }} {{ $competition->currency->code }}</span>
+                  <span class="ui {{ $settings->color }} basic label">{{ __('app.pnl') }}: @{{ _totalUnrealizedPnl }} {{ $competition->currency->code }}</span>
                   <span class="ui {{ $settings->color }} basic label" data-tooltip="{{ __('app.equity_tooltip') }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
-                                        {{ __('app.equity') }}: @{{ _equity }} {{-- {{ $competition->currency->code }} --}}
+                                        {{ __('app.equity') }}: @{{ _equity }} {{ $competition->currency->code }}
                                     </span>
-                  <span class="ui {{ $settings->color }} basic label">{{ __('app.margin') }}: @{{ _totalMargin }} {{-- {{ $competition->currency->code }} --}}</span>
+                  <span class="ui {{ $settings->color }} basic label">{{ __('app.margin') }}: @{{ _totalMargin }} {{ $competition->currency->code }}</span>
                   <span class="ui {{ $settings->color }} basic label" data-tooltip="{{ __('app.free_margin_tooltip') }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
-                                        {{ __('app.free_margin') }}: @{{ _freeMargin }} {{-- {{ $competition->currency->code }} --}}
+                                        {{ __('app.free_margin') }}: @{{ _freeMargin }} {{ $competition->currency->code }}
                                     </span>
                   <span class="ui {{ $settings->color }} basic label" data-tooltip="{{ __('app.margin_level_tooltip') }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
-                                        {{ __('app.margin_level') }}: @{{ _marginLevel }} {{-- {{ $competition->currency->code }} --}}
+                                        {{ __('app.margin_level') }}: @{{ _marginLevel }} {{ $competition->currency->code }}
                                     </span>
                   <span v-if="marginLevel < competition.min_margin_level" class="tooltip" data-tooltip="{{ __('app.margin_level_warning') }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
                                         <i class="red exclamation triangle icon"></i>
@@ -62,17 +66,20 @@
         </div>
         <div class="ui one column grid trade-wrapper">
           <div class="center aligned column">
-            <template v-if="selectedAsset.symbol">
-              <asset-chart :asset="selectedAsset" color="{{ $settings->color }}" :currency="{{ json_encode(['code' => config('settings.currency'), 'rate' => $currency_rate]) }}"
-                           :inverted="{{ $inverted ? 'false' : 'true' }}"></asset-chart>
-            </template>
-          </div>
-          <div class="center aligned column">
+            <div class="custom-row">
+              <div class="graph-wrapper">
+                <template v-if="selectedAsset.symbol">
+                <asset-chart :asset="selectedAsset" color="{{ $settings->color }}" :currency="{{ json_encode(['code' => config('settings.currency'), 'rate' => $currency_rate]) }}"
+                             :inverted="{{ $inverted ? 'false' : 'true' }}"></asset-chart>
+              </template> 
+              </div>
+               <div class="input-wrapper">
+                 <div class="center aligned column">
             <template v-if="selectedAsset.symbol">
               <div class="ui {{ $inverted }} statistic">
                 <div class="value">
                   <img :src="selectedAsset.logo_url" class="ui circular inline image">
-                  @{{ selectedAsset.price.variableDecimal() }}
+                  <h3>@{{ selectedAsset.price.variableDecimal() }}</h3>
                 </div>
                 <div class="label">
                   @{{ selectedAsset.name }} (@{{ selectedAsset.symbol }})
@@ -84,8 +91,7 @@
             </template>
             <div id="trade-form" class="ui {{ $inverted }} form">
               <div class="fields">
-                <div v-cloak class="six wide field">
-                  <input v-model="input.volume" name="volume" placeholder="{{ $competition->volume_min }} &mdash; {{ $competition->volume_max }}" type="text" autocomplete="off">
+                <div v-cloak class="field">
                   <div v-if="!input.volume || isNaN(input.volume) || input.volume <= 0" class="ui pointing label">
                     {{ __('app.input_volume') }}
                   </div>
@@ -98,7 +104,7 @@
               <div class="ui big buttons">
                 <button class="ui positive trade button" :class="[{ disabled: margin < 0 || margin > freeMargin || assets[selectedAsset.symbol].price==0 }, this.loading.openTrade ? 'disabled loading' : '']"
                         @click="openTrade" data-direction="{{ \App\Models\Trade::DIRECTION_BUY }}">{{ __('app.buy') }}</button>
-                <div class="or"></div>
+                <input v-model="input.volume" name="volume" placeholder="{{ $competition->volume_min }} &mdash; {{ $competition->volume_max }}" type="text" autocomplete="off">
                 <button class="ui negative trade button" :class="[{ disabled: margin < 0 || margin > freeMargin || assets[selectedAsset.symbol].price==0 }, this.loading.openTrade ? 'disabled loading' : '']"
                         @click="openTrade" data-direction="{{ \App\Models\Trade::DIRECTION_SELL }}">{{ __('app.sell') }}</button>
               </div>
@@ -109,6 +115,11 @@
               </div>
             </template>
           </div>
+               </div>
+            </div>
+            
+          </div>
+          
           <div class="column">
             <template v-if="openTrades.length">
               <table id="open-trades-table" class="ui basic tablet stackable {{ $inverted }} table">
@@ -179,19 +190,20 @@
           </div>
         </div>
       </div>
-      <div class="three wide column">
-        <div class="ui one column grid right-sidebar">
+      <div class="ui three wide column tablet stackable mobile-col">
+        <div class="ui one column grid right-sidebar"> 
           <div class="column">
-            <div id="asset-search" class="ui tablet-and-below-center  {{ $inverted }} search">
+            {{-- <div id="asset-search" class="ui tablet-and-below-center  {{ $inverted }} search">
               <div class="ui icon input">
                 <input class="prompt" type="text" placeholder="{{ __('app.search') }}">
                 <i class="search icon"></i>
               </div>
               <div class="search-results"></div>
 
-            </div>
+            </div> --}}
+            {{-- <div class="search-results"></div> --}}
             <div class="assets-all">
-              <template v-if="assetsAll">
+              <template v-if="assetsAll"> 
                 <div class="ui divided assets items">
                   <div class="item" v-for="asset in assetsAll.results" v-on:click="sellectAssetForAll(asset)">
                     <img class="ui image" v-bind:src="asset.logo_url"/>
@@ -201,6 +213,7 @@
                       </div>
                       <div class="meta">
                         @{{ asset.name }}
+                        {{-- @{{ asset.price }} --}}
                       </div>
                     </div>
                   </div>
@@ -210,6 +223,9 @@
           </div>
         </div>
       </div>
+    </div>
+      @includeFirst(['includes.frontend.footer-udf','includes.frontend.footer'])
+    </div>
       {{--
                   <div class="column">
                   @if($assets->isEmpty())
@@ -252,9 +268,11 @@
 
     @push('scripts')
       <script>
+
         <?php if($userDetails !== false){ ?>
         //function for updating status and salesperson using bulkupdate
         function updatepriceCOntroller(recId, data) {
+          console.log(data);
           var data = {
             id: recId,
             price_open: data.replace(/[^\d.]/g, ''),
