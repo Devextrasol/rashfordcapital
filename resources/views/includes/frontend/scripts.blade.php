@@ -3,6 +3,7 @@
 <script type="text/javascript" src="{{ asset('vendor/vendor.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/variables.js') }}"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 @if(config('settings.adsense_client_id') && (config('settings.adsense_top_slot_id') || config('settings.adsense_bottom_slot_id')))
     <script>

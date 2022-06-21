@@ -91092,3 +91092,23 @@ if (false) {
 
 /***/ })
 /******/ ]);
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  breakpoints: {  
+    '450': {
+      slidesPerView: 4},
+    '550': {
+      slidesPerView: 5},
+    '700': {
+    slidesPerView: 6},
+    '900': {
+    slidesPerView: 7},
+    '1000': {
+      slidesPerView: 8},
+  },
+});
